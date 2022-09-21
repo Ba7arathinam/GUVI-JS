@@ -16,7 +16,7 @@ request.onload=function(){
     console.log(res);
     for(var i=0;i<res.length;i++){
         console.log( "name:"+res[i].name,"Capital:"+res[i].capital)
-        //console.log(res[i].name,res[i].region,res[i].subregion)
+        console.log(res[i].name,res[i].region,res[i].subregion)
         
     }
 };
