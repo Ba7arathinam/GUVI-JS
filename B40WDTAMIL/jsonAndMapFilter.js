@@ -19,4 +19,19 @@ request.onload=function(){
         console.log(res[i].name,res[i].region,res[i].subregion)
         
     }
-};
+    // use filter method to find population of country which has less than 3lakes
+    var pop=res.filter((ele)=>ele.population<300000)
+    console.log(pop)
+    //find name and region of country of the country below 3lake
+    var popu=pop.map((ele)=>`${ele.name},${ele.region}`);
+    console.log(popu)
+    //print countrys which belongs to the Europe with name and region
+    var cun=res.filter((ele)=>ele.region=="Europe").map((ele)=>`${ele.name},${ele.region}`)
+    console.log(cun)
+    //find total population of overall countrys
+    var tot=res.reduce((acc,cv)=>acc+cv.population,0);
+    console.log("Total population is :"+tot)
+
+
+}
+
