@@ -1,0 +1,22 @@
+body{
+    background-color: lightgray;
+}
+.smallbox{
+    background-color: aliceblue;
+    text-align: center;
+    padding: 45px 0px;
+    margin: 35px 0px;
+
+}
+i{
+    color: rgb(238, 69, 131);
+}
+.cont{
+    margin: 30px 10px;
+}
+a{
+    border-bottom: 1px solid rgb(78, 72, 242);
+}
+.box{
+    padding: 60px 10px;
+}
