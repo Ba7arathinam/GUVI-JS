@@ -1,0 +1,96 @@
+//Pre-requistite For DOM task
+https://drive.google.com/file/d/1uwQsi6gLS-zXy1CaIM6zee8lCcwJYNa8/view?usp=sharing
+var label=document.createElement("label");
+label.setAttribute("for","male");
+label.innerHTML="Male";
+
+var male=document.createElement("input");
+male.setAttribute("type","radio");
+male.setAttribute("name","gender");
+male.setAttribute("id","male");
+male.setAttribute("value","male");
+
+var label1=document.createElement("label");
+label1.setAttribute("for","female");
+label1.innerHTML="feMale";
+
+var female=document.createElement("input");
+female.setAttribute("type","radio");
+female.setAttribute("name","gender");
+female.setAttribute("id","female");
+female.setAttribute("value","female");
+
+document.body.append(label,male,label1,female);
+
+function foo(){
+    
+if(male.checked){
+    let res=document.getElementById("male").value;
+    console.log(res);
+}
+else if(female.checked){
+    let res1=document.getElementById("female").value;
+    console.log(res1);
+}
+else{
+    console.log("others");
+}
+
+
+}
+var temp=[];
+let res=document.getElementsByTagName("checkbox").checked;
+temp.push(res);
+if(temp.length>=2){
+
+}else{
+    alert("select minimum 2");
+}
+// localStorage,sessionStorage
+//browser gives some space to store information
+//localstorage:stores the data without a deadline
+//sessionstorage:stores  the data for a  session
+
+
+//same methods for both
+//setItem,getItem,Remove,clear
+//localStorage.setItem("")
+//it takes the key value pair
+//keyname:value
+//return type:undefined
+// localStorage.setItem("firstname","guvi");
+// localStorage.setItem("middlename","geek");
+// localStorage.setItem("lastname","pvt");
+// console.log(res);
+
+//getItem
+//get item extracts the value
+//it returns the extracted value 
+// var res=localStorage.getItem("middlename");
+// console.log(res);
+
+//remove Item
+//it is removing the elements
+//it is returning undefined
+// var res=localStorage.removeItem("middlename");
+// console.log(res);
+
+//localstorage has to be completely cleared
+localStorage.clear();
+
+https://github.com/rvsp/HTML-CSS/blob/master/Mini-tasks/003-JS-DOM.md
+
+var div=document.createElement("div");
+div.innerHTML="this is div";
+div.addEventListener("mouseover",()=>div.style.color="red");
+document.body.append(div);
+
+function foo(){
+    let res=prompt("enter the value");
+    let span=document.createElement("span");
+    span.innerHTML=res;
+    span.style.color="green";
+    span.style.fontSize="20px";
+    document.body.append(span);
+
+}
