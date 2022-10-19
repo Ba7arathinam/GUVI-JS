@@ -1,0 +1,130 @@
+//call back hell
+
+function f1(){
+   function f2(){
+    function f3(){
+      function f4(){
+        function f5(){
+          console.log("hello world!!!!");
+        }
+      }
+    }
+   }
+}
+
+
+f1();
+To overcome the call back hell scenario we will be using  the promises//to overcome call  back hell scenario we use promises
+//Promise:it is an Object which holds the result of asynchronous operations
+//Purpose is:it holds  asynchronous operation result that can be returned 
+//synchrnously
+//syntax: var variablename=new Promise(()=>{});
+// var p1=new Promise((resolve,reject)=>);
+//promise takes a function as a parameter
+//inside that function we have resolve as well as reject as a parameters//to overcome call  back hell scenario we use promises
+//Promise:it is an Object which holds the result of asynchronous operations
+//Purpose is:it holds  asynchronous operation result that can be returned 
+//synchrnously
+//syntax: var variablename=new Promise(()=>{});
+// var p1=new Promise((resolve,reject)=>);
+//promise takes a function as a parameter
+//inside that function we have resolve as well as reject as a parameters
+var p1=new Promise((resolve,reject)=>{
+  reject("this is rejected");
+  resolve("this is resolved");
+});
+console.log(p1);
+//Ex01:reading the marks of student
+//reading the marks is an asynchronous ops
+var marks=parseInt(prompt("Enter the marks of student!!"));
+var p1=new Promise((resolve,reject)=>{
+ if(marks>=35){
+  resolve("you have passed!!!!");
+ } 
+else{
+  reject("you have failed!!!!");
+}
+
+});
+
+console.log(p1);
+
+var marks=parseInt(prompt("Enter the marks of student!!"));
+var p1=new Promise((resolve,reject)=>{
+ if(marks>=35){
+  resolve("you have passed!!!!");
+ } 
+else{
+  reject("you have failed!!!!");
+}
+
+});
+p1.then((data)=>console.log(data)).catch((error)=>console.log(error));
+//to handle the promises/accessing the data
+//.then method: 
+//it is applicable for fullfilled state
+//it helps us to extract the value of fullfilled
+//it takes the call back function as a parameters
+//to print the result
+
+//.catch method:
+//it is applicable for rejected state
+//it helps us to extract the value of rejected
+//it takes the call back function as a parameters
+//to print the result
+
+//error and data are userdefined
+
+function foo(){
+  return new Promise((resolve,reject)=>resolve(2*3));
+}
+var res=foo();
+console.log(res);
+foo().then((data)=>console.log(data)).catch((error)=>console.log(error));
+//if a  function is returning a promise
+//it has to be handled by .then for successfull...
+//it has to be handled by .catch for rejected...
+function mul(number){
+return new Promise((resolve,reject)=>setTimeout(()=>{
+  resolve(2*number)
+},3000));
+}
+mul(12)
+.then((data)=>{
+  console.log(data);
+  //mul(24);
+  return mul(data);
+}).then((data1)=>{
+  console.log(data1);
+  //mul(48);
+  return mul(data1);
+})
+.then((data2)=>console.log(data2)).catch((error)=>console.log(error));
+
+
+//if rejected in between
+
+function mul(number){
+return new Promise((resolve,reject)=>setTimeout(()=>{
+  resolve(2*number)
+},3000));
+}
+
+function bar(number){
+  return new Promise((resolve,reject)=>setTimeout(()=>{
+    reject(2*number+"this is rejected state")
+  },3000));
+  }
+
+mul(12)
+.then((data)=>{
+  console.log(data);
+  //mul(24);
+  return mul(data);
+}).then((data1)=>{
+  console.log(data1);
+  //bar(48);
+  return bar(data1);
+})
+.then((data2)=>console.log(data2))
+.catch((error)=>console.log(error));
